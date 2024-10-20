@@ -24,7 +24,7 @@ export const getUserEvent = async (req, res, next) => {
 
 export const getEvent = async (req, res, next) => {
   try {
-    const event = await EventModel.findById(req.params.id);
+    const event = await EventModel.findById(req.params.id).populate("users", "username email");
 
     if (!event) {
       return next(errorHandler({ statusCode: 404, message: "Event not found!" }));
@@ -78,6 +78,24 @@ export const updateEvent = async (req, res, next) => {
   }
   try {
     const updatedEvent = await EventModel.findByIdAndUpdate(req.params.id, req.body, { new: true });
+
+    res.status(200).json(updatedEvent);
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const registerUser = async (req, res, next) => {
+  const event = await EventModel.findById(req.params.id);
+  console.log(req.user);
+  const userId = req.user.id;
+
+  if (!event) {
+    return next(errorHandler({ statusCode: 404, message: "Event not found!" }));
+  }
+
+  try {
+    const updatedEvent = await EventModel.findByIdAndUpdate(event._id, { $addToSet: { users: userId } }, { new: true });
 
     res.status(200).json(updatedEvent);
   } catch (error) {

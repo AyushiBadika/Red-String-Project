@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
 
-import { Navigation } from "swiper/modules";
-
 import EventItem from "../components/EventItem";
 
 export default function Home() {

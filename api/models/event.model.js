@@ -21,7 +21,6 @@ const eventSchema = mongoose.Schema(
     },
     mode: {
       type: String,
-      enum: ["ONLINE", "OFFLINE", "HYBRID"],
       required: true,
     },
 
@@ -29,9 +28,12 @@ const eventSchema = mongoose.Schema(
       type: String,
       default: "https://images.unsplash.com/photo-1506157786151-b8491531f063?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bXVzaWMlMjBmZXN0aXZhbHxlbnwwfHwwfHx8MA%3D%3D",
     },
-    users: {
-      type: Array,
-    },
+    users: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+      },
+    ],
   },
   {
     timestamps: true,

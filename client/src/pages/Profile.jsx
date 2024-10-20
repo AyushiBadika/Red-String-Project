@@ -26,6 +26,7 @@ export default function Profile() {
         headers: {
           "Content-Type": "application/json",
         },
+        credentials: "include",
       });
       const data = await res.json();
 
@@ -49,7 +50,9 @@ export default function Profile() {
     try {
       dispatch(signOutUserStart());
 
-      const res = await fetch(`${import.meta.env.VITE_SERVER_URL}/api/auth/sign-out`);
+      const res = await fetch(`${import.meta.env.VITE_SERVER_URL}/api/auth/sign-out`, {
+        credentials: "include",
+      });
       const data = await res.json();
 
       if (data.success === false) {
@@ -70,6 +73,7 @@ export default function Profile() {
   }, [file]);
 
   const handleFileUpload = (file) => {
+    setFileUploadError(false);
     const storage = getStorage(app);
     const fileName = new Date().getTime() + file.name;
     const storageRef = ref(storage, fileName);
@@ -117,7 +121,7 @@ export default function Profile() {
           Create Event
         </Link>
       </form>
-      <button className="text-red-700  p-3 rounded-lg uppercase text-right hover:opacity-95" onClick={handleSignOut}>
+      <button className="bg-red-700 text-white p-3 rounded-lg uppercase text-right hover:opacity-95" onClick={handleSignOut}>
         Sign Out
       </button>
     </div>
