@@ -73,7 +73,7 @@ npm run build
 - **POST** `/api/auth/sign-in`: Log in a user
 - **GET** `/api/auth/sign-out`: Log out the user
 
-### Listing Routes
+### Event Routes
 
 - **POST** `/api/event/create`: Create a new event (requires token)
 - **GET** `/api/event/events`: Get all events of a user (requires token)
