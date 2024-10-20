@@ -17,7 +17,9 @@ export default function Event() {
   const fetchEvent = async () => {
     try {
       setLoading(true);
-      const res = await fetch(`${import.meta.env.VITE_SERVER_URL}/api/event/get/${params.eventId}`);
+      const res = await fetch(`${import.meta.env.VITE_SERVER_URL}/api/event/get/${params.eventId}`, {
+        credentials: "include",
+      });
       const data = await res.json();
 
       if (data.success === false) {

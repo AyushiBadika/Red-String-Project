@@ -8,7 +8,9 @@ export default function Home() {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const res = await fetch(`${import.meta.env.VITE_SERVER_URL}/api/event/get`);
+        const res = await fetch(`${import.meta.env.VITE_SERVER_URL}/api/event/get`, {
+          credentials: "include",
+        });
         const data = await res.json();
         setEvents(data);
       } catch (error) {
