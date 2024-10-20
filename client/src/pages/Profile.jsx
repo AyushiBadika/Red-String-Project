@@ -121,7 +121,7 @@ export default function Profile() {
           Create Event
         </Link>
       </form>
-      <button className="bg-red-700 text-white p-3 rounded-lg uppercase text-right hover:opacity-95" onClick={handleSignOut}>
+      <button className="bg-red-700 mt-4 w-full text-center text-white p-3 rounded-lg uppercase hover:opacity-95" onClick={handleSignOut}>
         Sign Out
       </button>
     </div>
