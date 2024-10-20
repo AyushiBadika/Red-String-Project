@@ -2,7 +2,7 @@
 
 Explore upcoming events or post your own. Join the fun, connect with others, and never miss out on exciting experiences!
 
-## Hosted Link :
+## Hosted Link : https://red-string-project.vercel.app/
 
 ## Table of Contents
 
