@@ -1,4 +1,4 @@
-# My Broker
+# My Event
 
 Explore upcoming events or post your own. Join the fun, connect with others, and never miss out on exciting experiences!
 
